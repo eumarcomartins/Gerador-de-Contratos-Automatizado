@@ -1,41 +1,62 @@
-# Checklist de Teste Humano
+# Human QA Checklist
 
-Executar somente após o gate automatizado.
+Usar em conjunto com `human-qa-scenarios.md`.
 
-## A — PF simples
-1 PF, 1 área, Google Ads, sem LP, 10 criativos, Academy Sim, Flowjuris Sim, 3/3, setup isento.
-Esperado: 7 dias, 1 signatário, LP ausente, Academy/Flowjuris presentes.
+## Dados e regras
 
-## B — PF múltipla
-2 PFs. Confirmar preenchimento sequencial e duas assinaturas.
+[ ] PF simples
+[ ] PF múltiplos
+[ ] PJ simples
+[ ] PJ com múltiplos representantes
+[ ] 4+ áreas bloqueia automático
+[ ] datas independentes
+[ ] renovação correta
+[ ] proporcionalidade correta
 
-## C — PJ com representação conjunta
-1 PJ, 2 representantes. Confirmar qualificação e duas assinaturas.
+## Preview vivo
 
-## D — Condicionais
-LP Sim exige quantidade.
-Academy Não remove bloco.
-Flowjuris Não remove bloco.
-Outro exige nome.
-Setup cobrado exige forma/data.
+[ ] preview aparece desde o primeiro passo
+[ ] desktop mantém formulário + A4 lado a lado
+[ ] alterações de campos refletem no contrato
+[ ] cláusulas condicionais aparecem/desaparecem
+[ ] trecho alterado recebe destaque temporário
+[ ] nenhum placeholder bruto aparece
+[ ] mobile alterna Preenchimento/Contrato
 
-## E — Bloqueios
-Fidelidade 2 bloqueia.
-Vigência 3 + fidelidade 4 bloqueia.
-4 áreas => manual.
+## Revisão
 
-## F — Datas
-Assinatura, início e primeira fatura distintas.
-Vigência usa início.
+[ ] CTA Revisar e gerar contrato
+[ ] modal completo
+[ ] checkbox obrigatório
+[ ] botão Gerar contrato bloqueado sem confirmação
+[ ] confirmação não dispara integração
+[ ] alteração posterior invalida aprovação
 
-## G — Financeiro
-Conferir mensalidade, total, setup e forma.
+## Documento
 
-## H — Integridade
-Buscar `{{` no contrato. Esperado: zero.
+[ ] A4
+[ ] Times New Roman 12 pt
+[ ] margens ~25 mm
+[ ] corpo justificado
+[ ] entrelinha 1,5
+[ ] título centralizado/negrito
+[ ] cláusulas corretamente hierarquizadas
+[ ] data à direita
+[ ] assinatura PF correta
+[ ] assinatura PJ correta
+[ ] CONTRATADA ao final
+[ ] sem testemunhas automáticas
+[ ] sem marcas de pendência no PDF
 
-## I — Mock
-Simular ClickUp e ZapSign sem request externo.
+## Segurança
 
-## J — UI
-Desktop, mobile, teclado, erros, contraste e retorno entre etapas.
+[ ] MOCK claramente identificado
+[ ] LIVE claramente identificado
+[ ] nenhum write externo durante homologação
+[ ] nenhuma credencial exposta
+
+## Resultado
+
+[ ] aprovado
+[ ] aprovado com ajustes
+[ ] reprovado
