@@ -1,0 +1,19 @@
+Abra este repositório e trabalhe como responsável técnico pelo protótipo do Gerador Automático de Contratos de Assessoria da Rota Jurídica.
+
+Antes de escrever código:
+
+1. leia integralmente `AGENTS.md`;
+2. leia `START-HERE.md`;
+3. leia `MASTER_PROMPT.md`;
+4. leia `spec/repo-manifest.json`;
+5. faça a auditoria Fase 0 prevista no MASTER_PROMPT;
+6. execute `python tools/audit_specs.py`;
+7. só comece a implementação quando a auditoria não tiver erros.
+
+Não altere os arquivos de especificação ou a biblioteca jurídica para “facilitar” a implementação. Se encontrar lacuna, use `SPEC_MISSING`. Se encontrar conflito, use `SPEC_CONFLICT`.
+
+Implemente em MOCK MODE primeiro. Não faça chamadas reais ao ClickUp nem à ZapSign e não solicite tokens nesta fase.
+
+Siga exatamente as fases e o gate definidos em `MASTER_PROMPT.md`.
+
+Ao concluir a Fase 0, mostre o plano, os conflitos/lacunas encontrados e os comandos que pretende usar. Não avance para a Fase 1 enquanto a Fase 0 não estiver integralmente verde.
