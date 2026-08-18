@@ -1,1 +1,30 @@
-{"version":"1.0.0","cases":[{"id":"CALC-001","formula":"partial_service","monthly_fee_cents":300000,"year":2026,"month":4,"service_days":12,"calendar_days_expected":30,"expected_cents":120000},{"id":"CALC-002","formula":"partial_service","monthly_fee_cents":310000,"year":2026,"month":1,"service_days":10,"calendar_days_expected":31,"expected_cents":100000},{"id":"CALC-003","formula":"partial_service","monthly_fee_cents":280000,"year":2026,"month":2,"service_days":14,"calendar_days_expected":28,"expected_cents":140000},{"id":"CALC-004","formula":"partial_service","monthly_fee_cents":290000,"year":2028,"month":2,"service_days":14,"calendar_days_expected":29,"expected_cents":140000},{"id":"CALC-005","formula":"initial_term","monthly_fee_cents":229700,"term_months":6,"expected_cents":1378200},{"id":"CALC-006","formula":"nominal_fidelity","monthly_fee_cents":229700,"fidelity_months":3,"expected_cents":689100},{"id":"CALC-007","formula":"setup","status":"CHARGED","expected_cents":100000},{"id":"CALC-008","formula":"setup","status":"EXEMPT","expected_cents":0},{"id":"CALC-009","formula":"late_fine","overdue_cents":229700,"expected_cents":22970},{"id":"CALC-010","formula":"notice_waiver","current_monthly_fee_cents":229700,"expected_cents":229700},{"id":"CALC-011","formula":"renewal","term_months":6,"creatives_quantity":12,"landing_pages_quantity":2,"expected":{"term_months":6,"fidelity_renews":false,"creatives_quantity":12,"landing_pages_quantity":0}}],"rounding_cases":[{"id":"ROUND-001","formula":"partial_service","monthly_fee_cents":229700,"calendar_days":31,"service_days":10,"rule":"Use decimal/rational arithmetic; round final monetary result to nearest cent according to implementation's documented half-up policy.","note":"The implementation must document one deterministic cent-rounding convention and apply it everywhere."}]}
+{
+  "version": "1.0.0",
+  "cases": [
+    {"id":"CALC-001","formula":"partial_service","monthly_fee_cents":300000,"year":2026,"month":4,"service_days":12,"calendar_days_expected":30,"expected_cents":120000},
+    {"id":"CALC-002","formula":"partial_service","monthly_fee_cents":310000,"year":2026,"month":1,"service_days":10,"calendar_days_expected":31,"expected_cents":100000},
+    {"id":"CALC-003","formula":"partial_service","monthly_fee_cents":280000,"year":2026,"month":2,"service_days":14,"calendar_days_expected":28,"expected_cents":140000},
+    {"id":"CALC-004","formula":"partial_service","monthly_fee_cents":290000,"year":2028,"month":2,"service_days":14,"calendar_days_expected":29,"expected_cents":140000},
+    {"id":"CALC-005","formula":"initial_term","monthly_fee_cents":229700,"term_months":6,"expected_cents":1378200},
+    {"id":"CALC-006","formula":"nominal_fidelity","monthly_fee_cents":229700,"fidelity_months":3,"expected_cents":689100},
+    {"id":"CALC-007","formula":"setup","status":"CHARGED","expected_cents":100000},
+    {"id":"CALC-008","formula":"setup","status":"EXEMPT","expected_cents":0},
+    {"id":"CALC-009","formula":"late_fine","overdue_cents":229700,"expected_cents":22970},
+    {"id":"CALC-010","formula":"notice_waiver","current_monthly_fee_cents":229700,"expected_cents":229700},
+    {"id":"CALC-011","formula":"renewal","term_months":6,"creatives_quantity":12,"landing_pages_quantity":2,"expected":{"term_months":6,"fidelity_renews":false,"creatives_quantity":12,"landing_pages_quantity":0}},
+    {"id":"CALC-012","formula":"remaining_fidelity_balance","service_start_date":"2026-09-05","fidelity_months":3,"termination_effective_date":"2026-10-20","monthly_fee_cents":300000,"expected":{"fidelity_end_exclusive":"2026-12-05","remaining_balance_cents":454839,"fine_20_percent_cents":90968}},
+    {"id":"CALC-013","formula":"remaining_fidelity_balance","service_start_date":"2026-01-31","fidelity_months":3,"termination_effective_date":"2026-04-30","monthly_fee_cents":300000,"expected":{"fidelity_end_exclusive":"2026-04-30","remaining_balance_cents":0}},
+    {"id":"CALC-014","formula":"anchored_fidelity_end","service_start_date":"2026-01-31","fidelity_months":1,"expected_date":"2026-02-28"},
+    {"id":"CALC-015","formula":"anchored_fidelity_end","service_start_date":"2028-01-31","fidelity_months":1,"expected_date":"2028-02-29"},
+    {"id":"CALC-016","formula":"late_interest","overdue_principal_cents":300000,"days_overdue":0,"expected_cents":0},
+    {"id":"CALC-017","formula":"late_interest","overdue_principal_cents":300000,"days_overdue":1,"expected_cents":100},
+    {"id":"CALC-018","formula":"late_interest","overdue_principal_cents":300000,"days_overdue":15,"expected_cents":1500},
+    {"id":"CALC-019","formula":"late_interest","overdue_principal_cents":300000,"days_overdue":30,"expected_cents":3000},
+    {"id":"CALC-020","formula":"late_interest","overdue_principal_cents":300000,"days_overdue":45,"expected_cents":4500}
+  ],
+  "rounding_cases": [
+    {"id":"ROUND-001","formula":"partial_service","monthly_fee_cents":229700,"calendar_days":31,"service_days":10,"rule":"Use decimal/rational arithmetic; round final monetary result HALF_UP to nearest cent.","note":"Do not round the daily rate before multiplying by service days."},
+    {"id":"ROUND-002","formula":"remaining_fidelity_balance","rule":"Keep each calendar-month slice at full decimal/rational precision; sum all slices; round the final balance HALF_UP to cents; then calculate 20% fine and round that final fine HALF_UP to cents."},
+    {"id":"ROUND-003","formula":"late_interest","rule":"Compute principal * 0.01 * days_overdue / 30 at full decimal/rational precision and round only the final interest amount HALF_UP to cents."}
+  ]
+}
