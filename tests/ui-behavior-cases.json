@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    {"id":"UI-001","name":"Live preview starts immediately","given":"wizard opened with default empty draft","expected":["A4 preview visible on desktop","no raw {{PLACEHOLDER}} visible","pending values represented by UI-only markers"]},
+    {"id":"UI-002","name":"Conditional clause appears","given":"landing_page_included changes false -> true and quantity becomes valid","expected":["CL-2-5-LANDING-PAGE visible in preview","affected section highlighted temporarily"]},
+    {"id":"UI-003","name":"Conditional clause disappears","given":"flowjuris_included changes true -> false","expected":["CL-2-8-FLOWJURIS absent from preview","removal feedback shown without changing final document styling"]},
+    {"id":"UI-004","name":"Derived deadline updates","given":"areas_count changes 2 -> 3","expected":["implementation deadline changes 10 -> 15 business days","deadline clause receives temporary highlight"]},
+    {"id":"UI-005","name":"Signer preview PF","given":"second PF contractor becomes valid","expected":["second PF signature block appears","order matches payload"]},
+    {"id":"UI-006","name":"Signer preview PJ","given":"second PJ representative becomes valid","expected":["second representative signature block appears","no unsigned PJ-only block is created"]},
+    {"id":"UI-007","name":"Review modal gate","given":"payload and render valid, user clicks REVIEW AND GENERATE","expected":["modal lists all relevant variable decisions","GENERATE CONTRACT disabled until confirmation checkbox"]},
+    {"id":"UI-008","name":"Approval snapshot","given":"review confirmed","expected":["state HUMAN_APPROVED","approval_payload_hash equals current_payload_hash","approval_render_hash equals current_render_hash"]},
+    {"id":"UI-009","name":"Approval invalidation","given":"monthly fee changes after HUMAN_APPROVED but before external write","expected":["approval invalidated","state returns to DRAFT/validation flow","unsent PDF invalidated","new review required"]},
+    {"id":"UI-010","name":"Generate does not send","given":"user confirms review and generates contract","expected":["PDF can become ready","no ClickUp/ZapSign request occurs automatically"]},
+    {"id":"UI-011","name":"Mobile mode","given":"viewport too narrow for two columns","expected":["form and contract use explicit tabs/panels","no side-by-side miniature A4"]},
+    {"id":"UI-012","name":"Final PDF has no UI artifacts","given":"PDF generated after approval","expected":["no skeleton","no pending marker","no temporary highlight","no raw placeholder"]}
+  ]
+}
