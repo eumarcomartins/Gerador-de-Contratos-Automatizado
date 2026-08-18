@@ -50,6 +50,8 @@ Este manifesto descreve os ativos versionados no repositório para o produto ASS
 `product/ui-wireframe.md`
 `product/contract-document-style.md`
 
+A especificação de UI exige preview vivo persistente no desktop e modal obrigatório de revisão antes de `HUMAN_APPROVED`.
+
 ## Integrações
 
 `integrations/api-contract.md`
@@ -70,6 +72,7 @@ Este manifesto descreve os ativos versionados no repositório para o produto ASS
 `tests/formatting-cases.json`
 `tests/property-invariants.json`
 `tests/property-generators.json`
+`tests/ui-behavior-cases.json` — preview vivo, revisão, aprovação e invalidação.
 `tests/coverage-matrix.csv`
 `tests/test-plan.md`
 `tests/pre-human-gate.md`
@@ -108,6 +111,8 @@ Não existe diretório `tests/fixtures/` versionado nesta versão. Os casos reut
 
 `tools/audit_specs.py` é o auditor versionado e deve ser executado no HEAD em uso.
 
+Além das verificações jurídicas/estruturais, o auditor confere todos os `required_assets` declarados em `spec/repo-manifest.json`.
+
 Relatórios de auditoria e checksums do repositório inteiro são artefatos derivados e não são mantidos como fonte versionada. O Git identifica a versão integral do repositório e `legal/clause-hashes.json` protege especificamente os textos jurídicos locked.
 
 O gate pré-humano deverá gerar `artifacts/pre-human-report.md` no momento correto.
@@ -120,6 +125,8 @@ O gate pré-humano deverá gerar `artifacts/pre-human-report.md` no momento corr
 `source-materials/README.md`
 
 Contratos-modelo com dados pessoais reais de clientes não devem ser versionados.
+
+A especificação de apresentação do contrato em `product/contract-document-style.md` foi calibrada a partir da estrutura visual dos modelos originais fornecidos, sem versionar dados pessoais reais.
 
 ## Ativo visual pendente
 
