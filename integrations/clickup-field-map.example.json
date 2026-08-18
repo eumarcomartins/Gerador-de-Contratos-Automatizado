@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "target": {"space":"Administrativo","folder":"Jurídico","list":"Cadastro","list_id_env":"CLICKUP_LIST_ID"},
+  "task_name_template": "[CONTRATO][ASSESSORIA] {{CLIENT_DISPLAY_NAME}} — {{CONTRACT_ID}}",
+  "description_sections": ["contract_id","spec_version","client_display_name","contractor_type","term","fidelity","monthly_fee","scope_summary","signature_date","service_start_date","render_hash"],
+  "custom_fields": [
+    {"semantic_key":"contract_id","clickup_custom_field_id":"TO_CONFIGURE"},{"semantic_key":"product","clickup_custom_field_id":"TO_CONFIGURE"},{"semantic_key":"client_name","clickup_custom_field_id":"TO_CONFIGURE"},{"semantic_key":"signature_date","clickup_custom_field_id":"TO_CONFIGURE"},{"semantic_key":"service_start_date","clickup_custom_field_id":"TO_CONFIGURE"},{"semantic_key":"monthly_fee","clickup_custom_field_id":"TO_CONFIGURE"},{"semantic_key":"term_months","clickup_custom_field_id":"TO_CONFIGURE"},{"semantic_key":"fidelity_months","clickup_custom_field_id":"TO_CONFIGURE"}
+  ],
+  "notes":"Do not invent ClickUp Custom Field IDs."
+}

@@ -1,0 +1,7 @@
+{
+  "mode":"MOCK",
+  "document":{"name":"ASS-2026-000001 — CLIENTE TESTE UM","source":"final-approved-pdf","idempotency_key":"ASS-2026-000001:sha256:..."},
+  "signers":[{"role":"CLIENT_PF","name":"CLIENTE TESTE UM","email":"cliente1@example.com","cpf":"111.222.333-44"},{"role":"CONTRACTOR_REPRESENTATIVE","name":"RODRIGO MARCIEL ELIAS","email":"rodrigo@metodorotajuridica.com.br","cpf":"360.936.088-75"}],
+  "webhook_expected":["document_created","signer_signed","document_completed_or_equivalent"],
+  "note":"Nomes exatos de eventos/atributos devem seguir a documentação oficial da ZapSign vigente no momento da integração."
+}

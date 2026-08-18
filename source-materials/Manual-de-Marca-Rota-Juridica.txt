@@ -1,0 +1,48 @@
+# Manual de Marca - Rota Jurídica
+
+## Estudo de Identidade Visual: Rota Jurídica
+
+Este documento apresenta uma análise detalhada da identidade visual da **Rota Jurídica - Assessoria de Marketing**, baseada nos materiais fornecidos: logotipos, apresentação comercial e landing pages institucionais. O objetivo é documentar os padrões visuais atuais para garantir consistência em futuras comunicações da marca.
+
+## 1. Essência da Marca e Posicionamento Visual
+
+A Rota Jurídica posiciona-se como uma assessoria especializada em marketing e vendas para o mercado jurídico, focada em performance, previsibilidade e resultados financeiros. Diferencia-se de agências tradicionais por oferecer um acompanhamento estratégico profundo ("Menos agência, mais assessoria").
+
+Visualmente, essa essência é traduzida através de uma estética corporativa, moderna e orientada a dados. A marca transmite autoridade, seriedade e inovação, afastando-se dos clichês visuais tradicionais do direito para adotar uma linguagem mais próxima de empresas de tecnologia, consultorias de negócios e growth marketing.
+
+## 2. Paleta de Cores
+
+Azul Petróleo Escuro — primária — #004366 / #004467 — RGB(0, 67, 102).
+Preto / Cinza Muito Escuro — fundo secundário — #000000 / #111111.
+Branco — contraste e leitura — #FFFFFF.
+Amarelo / Dourado — destaque e CTA — #F2C94C — RGB(242, 201, 76).
+
+## 3. Tipografia
+
+Poppins — títulos e logotipo; regular a bold; linguagem geométrica e de autoridade.
+DM Sans — corpo de texto; regular a semibold; alta legibilidade em telas.
+
+## 4. Logotipo e Elementos Gráficos
+
+O símbolo é formado por três linhas horizontais espessas, alinhadas à esquerda, formando um quadrado ou retângulo vertical. Pode remeter a etapas de um processo, linhas de um documento ou uma rota estruturada.
+
+O nome "ROTA JURÍDICA" aparece em destaque, com "ASSESSORIA DE MARKETING" como descritivo de apoio.
+
+Elementos de apoio:
+fotografias profissionais em tons mais escuros;
+ícones lineares e minimalistas;
+linhas horizontais como grafismo de separação.
+
+## 5. Padrões de Layout e Composição
+
+Forte preferência por dark mode com azul petróleo ou preto.
+Informações complexas organizadas em cards.
+Uso consciente de espaço negativo.
+Prova social integrada de forma limpa.
+
+## Conclusão
+
+A identidade comunica previsibilidade, performance e profissionalismo. O contraste com amarelo/dourado mantém apelo comercial sem perder sobriedade.
+
+Documento gerado: 14/07/2026
+Versão: 1.0

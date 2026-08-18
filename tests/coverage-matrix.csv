@@ -1,0 +1,6 @@
+rule_family,source,test_assets,requirement
+BR-*,spec/business-rules.json,"cases-valid.json; cases-invalid.json; property-invariants.json; property-generators.json",Codex must create exact rule-to-test traceability before implementation
+VR-*,spec/validation-rules.json,cases-invalid.json,Assert exact validation code and severity
+CR-*,spec/calculation-rules.json,"calculation-cases.json; renewal-cases.json; property-invariants.json",Assert cent-safe calculations and boundary cases
+CL-*,legal/clause-matrix.json,"expected-clause-sets.json; formatting-cases.json",Assert exact inclusion exclusion and order
+PI-*,tests/property-invariants.json,property-generators.json,Run at least 1000 valid and 1000 mutated cases with reproducible seed

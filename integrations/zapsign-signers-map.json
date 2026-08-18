@@ -1,0 +1,8 @@
+{
+  "version":"1.0.0",
+  "input":"approved PDF + resolved signers",
+  "signer_rules":[{"when":"contractor_type == PF","signers":"all individual_contractors in input order"},{"when":"contractor_type == PJ","signers":"all legal_entity.representatives in input order"},{"when":"always","signers":"fixed Rota representative from secure server config"}],
+  "metadata":["contract_id","spec_version","render_hash"],
+  "mock_prefixes":{"document":"MOCK-ZS-DOC-","signer":"MOCK-ZS-SIGNER-"},
+  "live_requirements":["ZAPSIGN_API_TOKEN","approved PDF","at least one client signer","Rota signer"]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://rota-juridica.local/schemas/assessoria-contract-payload.schema.json",
+  "title":"Rota Jurídica - Assessoria Contract Input",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["product","contractor_type","communication","scope","commercial","dates","term","payment","setup"],
+  "properties":{
+    "product":{"const":"ASSESSORIA"},
+    "contractor_type":{"type":"string","enum":["PF","PJ"]},
+    "individual_contractors":{"type":["array","null"],"items":{"$ref":"#/$defs/person"},"minItems":1},
+    "legal_entity":{"anyOf":[{"$ref":"#/$defs/legalEntity"},{"type":"null"}]},
+    "communication":{"type":"object","additionalProperties":false,"required":["whatsapp_main"],"properties":{"whatsapp_main":{"type":"string","minLength":8,"maxLength":30}}},
+    "scope":{"type":"object","additionalProperties":false,"required":["areas_count","media_channels","media_cap_brl","landing_page_included","creatives_quantity","rota_academy_included","flowjuris_included"],"properties":{"areas_count":{"type":"integer","minimum":1},"media_channels":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string","enum":["GOOGLE_ADS","META_ADS","LINKEDIN_ADS","TIKTOK_ADS","GPT_ADS","OTHER"]}},"other_media_channel":{"type":["string","null"],"maxLength":100},"media_cap_brl":{"type":"number","exclusiveMinimum":0},"landing_page_included":{"type":"boolean"},"landing_pages_quantity":{"type":["integer","null"],"minimum":1},"creatives_quantity":{"type":"integer","minimum":0},"rota_academy_included":{"type":"boolean","default":true},"flowjuris_included":{"type":"boolean","default":true}}},
+    "commercial":{"type":"object","additionalProperties":false,"required":["monthly_fee_brl"],"properties":{"monthly_fee_brl":{"type":"number","exclusiveMinimum":0}}},
+    "dates":{"type":"object","additionalProperties":false,"required":["signature_date","service_start_date","first_invoice_date"],"properties":{"signature_date":{"type":"string","format":"date"},"service_start_date":{"type":"string","format":"date"},"first_invoice_date":{"type":"string","format":"date"}}},
+    "term":{"type":"object","additionalProperties":false,"required":["term_months","fidelity_months"],"properties":{"term_months":{"type":"integer","enum":[3,6,12]},"fidelity_months":{"type":"integer","minimum":3}}},
+    "payment":{"type":"object","additionalProperties":false,"required":["method","recurring_due_day"],"properties":{"method":{"type":"string","enum":["BOLETO_PIX","CREDIT_CARD_RECURRING"]},"recurring_due_day":{"type":"integer","minimum":1,"maximum":31}}},
+    "setup":{"type":"object","additionalProperties":false,"required":["status"],"properties":{"status":{"type":"string","enum":["CHARGED","EXEMPT"]},"payment_method":{"type":["string","null"],"enum":["BOLETO_PIX_WITH_MONTHLY","CREDIT_CARD",null]},"payment_date":{"type":["string","null"],"format":"date"}}}
+  },
+  "$defs":{
+    "person":{"type":"object","additionalProperties":false,"required":["full_name","nationality","marital_status","profession","cpf","rg","birth_date","address","email"],"properties":{"full_name":{"type":"string","minLength":2},"nationality":{"type":"string","minLength":2},"marital_status":{"type":"string","minLength":2},"profession":{"type":"string","minLength":2},"cpf":{"type":"string","minLength":11},"rg":{"type":"string","minLength":2},"birth_date":{"type":"string","format":"date"},"address":{"type":"string","minLength":5},"email":{"type":"string","format":"email"}}},
+    "representative":{"type":"object","additionalProperties":false,"required":["full_name","nationality","marital_status","profession","cpf","rg","address","email"],"properties":{"full_name":{"type":"string","minLength":2},"nationality":{"type":"string","minLength":2},"marital_status":{"type":"string","minLength":2},"profession":{"type":"string","minLength":2},"cpf":{"type":"string","minLength":11},"rg":{"type":"string","minLength":2},"address":{"type":"string","minLength":5},"email":{"type":"string","format":"email"}}},
+    "legalEntity":{"type":"object","additionalProperties":false,"required":["legal_name","cnpj","address","email","representatives"],"properties":{"legal_name":{"type":"string","minLength":2},"cnpj":{"type":"string","minLength":14},"address":{"type":"string","minLength":5},"email":{"type":"string","format":"email"},"representatives":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/representative"}}}}
+  },
+  "allOf":[
+    {"if":{"properties":{"contractor_type":{"const":"PF"}}},"then":{"required":["individual_contractors"],"properties":{"legal_entity":{"type":"null"}}}},
+    {"if":{"properties":{"contractor_type":{"const":"PJ"}}},"then":{"required":["legal_entity"],"properties":{"individual_contractors":{"type":"null"}}}},
+    {"if":{"properties":{"scope":{"properties":{"landing_page_included":{"const":true}}}}},"then":{"properties":{"scope":{"required":["landing_pages_quantity"]}}}},
+    {"if":{"properties":{"scope":{"properties":{"media_channels":{"contains":{"const":"OTHER"}}}}}},"then":{"properties":{"scope":{"required":["other_media_channel"]}}}},
+    {"if":{"properties":{"setup":{"properties":{"status":{"const":"CHARGED"}}}}},"then":{"properties":{"setup":{"required":["payment_method","payment_date"]}}}}
+  ]
+}
